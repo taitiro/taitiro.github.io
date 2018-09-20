@@ -1,4 +1,4 @@
 # Title
-Taichiro's Homepage
+だらけるこむ
 # Desc
-THe homepage of Kosugi Taichirou.
+だらけるこむのページ
