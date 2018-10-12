@@ -4,13 +4,13 @@
 <body>
   <h1>test</h1>
   <div>
-    <canvas id="the-canvas1"></canvas>
+    <canvas id="the-canvas1" style="width:1190px;height:1683px;"></canvas>
   </div>
   <div>
-    <canvas id="the-canvas2"></canvas>
+    <canvas id="the-canvas2" style="width:1190px;height:1683px;"></canvas>
   </div>
   <div>
-    <canvas id="the-canvas3"></canvas>
+    <canvas id="the-canvas3" style="width:1190px;height:1683px;"></canvas>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.js" integrity="sha256-vppQRyCpURzV/wRrRCA8qbMDHsta2Ba1GW3SnQhIYto=" crossorigin="anonymous"></script>
   <script type="text/javascript">
@@ -51,8 +51,6 @@
           };
           let renderTask = _page.render(renderContext);
           renderTask.then(function () {
-            canvas.style.width = '1190px';
-            canvas.style.width = '1683px';
             console.log('Page rendered');
           });
         });
