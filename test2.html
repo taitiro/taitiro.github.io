@@ -21,17 +21,12 @@
 
     // Loaded via <script> tag, create shortcut to access PDF.js exports.
     let pdfjsLib = window['pdfjs-dist/build/pdf'];
-    
-    pdfjsLib.cMapUrl = "cmaps/";
-    pdfjsLib.cMapPacked = true;
 
     // Asynchronous download of PDF
 
     let loadingTask = pdfjsLib.getDocument({url: url, cMapUrl: 'cmaps/', cMapPacked: true});
     loadingTask.promise.then(function (pdf) {
       console.log('PDF loaded');
-      pdf.cMapUrl = "cmaps/";
-      pdf.cMapPacked = true;
 
       // Fetch the first page
       let pageNumberArray = [1, 2, 3];
