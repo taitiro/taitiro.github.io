@@ -9,6 +9,9 @@
   <div>
     <canvas id="the-canvas2"></canvas>
   </div>
+  <div>
+    <canvas id="the-canvas3"></canvas>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.min.js" integrity="sha256-N1PD5bviFUXpEJ3Q/AdJ8o2DyRrQMxUTcKhEVWbDYmY="
     crossorigin="anonymous"></script>
   <script type="text/javascript">
@@ -25,7 +28,7 @@
       console.log('PDF loaded');
 
       // Fetch the first page
-      var pageNumberArray = [1, 2];
+      var pageNumberArray = [1, 2, 3];
       for (var i = 0; i < pageNumberArray.length; i++) {
         var pageNumber = pageNumberArray[i];
         pdf.getPage(pageNumber).then(function (page) {
@@ -35,7 +38,7 @@
           var viewport = page.getViewport(scale);
 
           // Prepare canvas using PDF page dimensions
-          var canvas = document.getElementById('the-canvas' + i);
+          var canvas = document.getElementById('the-canvas' + pageNumber);
           var context = canvas.getContext('2d');
           canvas.height = viewport.height;
           canvas.width = viewport.width;
