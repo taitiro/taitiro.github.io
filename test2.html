@@ -29,6 +29,8 @@
     let loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function (pdf) {
       console.log('PDF loaded');
+      pdf.cMapUrl = "cmaps/";
+      pdf.cMapPacked = true;
 
       // Fetch the first page
       let pageNumberArray = [1, 2, 3];
