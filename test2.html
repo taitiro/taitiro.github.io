@@ -26,7 +26,8 @@
     pdfjsLib.cMapPacked = true;
 
     // Asynchronous download of PDF
-    let loadingTask = pdfjsLib.getDocument(url);
+
+    let loadingTask = pdfjsLib.getDocument({url: url, cMapUrl: 'cmaps/', cMapPacked: true});
     loadingTask.promise.then(function (pdf) {
       console.log('PDF loaded');
       pdf.cMapUrl = "cmaps/";
