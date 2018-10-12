@@ -22,6 +22,9 @@
 
     // Loaded via <script> tag, create shortcut to access PDF.js exports.
     let pdfjsLib = window['pdfjs-dist/build/pdf'];
+    
+    pdfjsLib.cMapUrl = "cmaps/";
+    pdfjsLib.cMapPacked = true;
 
     // Asynchronous download of PDF
     let loadingTask = pdfjsLib.getDocument(url);
