@@ -15,40 +15,41 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.550/pdf.min.js" integrity="sha256-N1PD5bviFUXpEJ3Q/AdJ8o2DyRrQMxUTcKhEVWbDYmY="
     crossorigin="anonymous"></script>
   <script type="text/javascript">
+  {
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
-    var url = './helloworld.pdf';
+    let url = './helloworld.pdf';
 
     // Loaded via <script> tag, create shortcut to access PDF.js exports.
-    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+    let pdfjsLib = window['pdfjs-dist/build/pdf'];
 
     // Asynchronous download of PDF
-    var loadingTask = pdfjsLib.getDocument(url);
+    let loadingTask = pdfjsLib.getDocument(url);
     loadingTask.promise.then(function (pdf) {
       console.log('PDF loaded');
 
       // Fetch the first page
-      var pageNumberArray = [1, 2, 3];
-      for (var i = 0; i < pageNumberArray.length; i++) {
-        var pageNumber = pageNumberArray[i];
-        pdf.getPage(pageNumber).then(function (page) {
+      let pageNumberArray = [1, 2, 3];
+      for (let i = 0; i < pageNumberArray.length; i++) {
+        let pageNumber = pageNumberArray[i];
+        pdf.getPage(1).then(function (_page) {
           console.log('Page loaded');
 
-          var scale = 1.5;
-          var viewport = page.getViewport(scale);
+          let scale = 1.5;
+          let viewport = _page.getViewport(scale);
 
           // Prepare canvas using PDF page dimensions
-          var canvas = document.getElementById('the-canvas' + pageNumber);
-          var context = canvas.getContext('2d');
+          let canvas = document.getElementById('the-canvas' + pageNumber);
+          let context = canvas.getContext('2d');
           canvas.height = viewport.height;
           canvas.width = viewport.width;
 
           // Render PDF page into canvas context
-          var renderContext = {
+          let renderContext = {
             canvasContext: context,
             viewport: viewport
           };
-          var renderTask = page.render(renderContext);
+          let renderTask = _page.render(renderContext);
           renderTask.then(function () {
             console.log('Page rendered');
           });
@@ -58,6 +59,7 @@
       // PDF loading error
       console.error(reason);
     });
+  }
   </script>
 </body>
 
