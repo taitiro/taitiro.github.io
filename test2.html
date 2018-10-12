@@ -32,7 +32,7 @@
       let pageNumberArray = [1, 2, 3];
       for (let i = 0; i < pageNumberArray.length; i++) {
         let pageNumber = pageNumberArray[i];
-        pdf.getPage(1).then(function (_page) {
+        pdf.getPage(pageNumber).then(function (_page) {
           console.log('Page loaded');
 
           let scale = 1.5;
