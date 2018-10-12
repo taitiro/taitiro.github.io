@@ -27,7 +27,7 @@
       // Fetch the first page
       var pageNumberArray = [1, 2];
       for (var i = 0; i < pageNumberArray.length; i++) {
-        var pageNumber = i;
+        var pageNumber = pageNumberArray[i];
         pdf.getPage(pageNumber).then(function (page) {
           console.log('Page loaded');
 
